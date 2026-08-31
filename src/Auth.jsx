@@ -38,7 +38,7 @@ export default function Auth() {
     setMessage('')
 
     try {
-      const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: window.location.origin })
+      const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: 'https://focus-session-tracker-eight.vercel.app' })
       if (error) throw error
       setMessage('Password reset link sent to your email!')
       setEmail('')
