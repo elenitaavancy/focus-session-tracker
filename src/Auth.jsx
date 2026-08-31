@@ -38,7 +38,7 @@ export default function Auth() {
     setMessage('')
 
     try {
-      const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: 'https://focus-session-tracker-eight.vercel.app' })
+      const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: 'https://tracker.optimoliving.com' })
       if (error) throw error
       setMessage('Password reset link sent to your email!')
       setEmail('')
@@ -69,7 +69,11 @@ export default function Auth() {
   return (
     <div style={{minHeight: '100vh', backgroundColor: '#0f1419', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', fontFamily: 'system-ui'}}>
       <div style={{width: '100%', maxWidth: '400px', backgroundColor: '#1a1f2e', borderRadius: '12px', padding: '40px', boxShadow: '0 10px 40px rgba(0,0,0,0.3)', border: '1px solid #333'}}>
-        <h2 style={{fontSize: '28px', fontWeight: 'bold', color: '#fff', marginBottom: '30px', textAlign: 'center'}}>{isSignUp ? 'Create Account' : 'Sign In'}</h2>
+        <div style={{marginBottom: '30px', textAlign: 'center'}}>
+          <h1 style={{fontSize: '32px', fontWeight: 'bold', color: '#fff', marginBottom: '8px'}}>Focus Session Tracker</h1>
+          <p style={{color: '#888', fontSize: '12px', fontStyle: 'italic'}}>Helping you get things done</p>
+        </div>
+        <h2 style={{fontSize: '20px', fontWeight: '600', color: '#fff', marginBottom: '20px', textAlign: 'center'}}>{isSignUp ? 'Create Account' : 'Sign In'}</h2>
         <form onSubmit={handleAuth} style={{display: 'flex', flexDirection: 'column', gap: '16px'}}>
           <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} style={{padding: '12px', backgroundColor: '#0f1419', color: '#fff', border: '1px solid #333', borderRadius: '6px', fontSize: '14px'}} />
           <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} style={{padding: '12px', backgroundColor: '#0f1419', color: '#fff', border: '1px solid #333', borderRadius: '6px', fontSize: '14px'}} />
