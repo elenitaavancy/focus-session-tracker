@@ -39,7 +39,12 @@ export default function Auth() {
 
     try {
       const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: 'https://tracker.optimoliving.com' })
-      if (error) throw error
+      if (error) {
+        if (error.message.includes('rate limit')) {
+          throw new Error('Too many attempts. Please try again in 30 minutes.')
+        }
+        throw error
+      }
       setMessage('Password reset link sent to your email!')
       setEmail('')
     } catch (err) {
