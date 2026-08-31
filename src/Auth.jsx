@@ -71,7 +71,7 @@ export default function Auth() {
       <div style={{width: '100%', maxWidth: '400px', backgroundColor: '#1a1f2e', borderRadius: '12px', padding: '40px', boxShadow: '0 10px 40px rgba(0,0,0,0.3)', border: '1px solid #333'}}>
         <div style={{marginBottom: '30px', textAlign: 'center'}}>
           <h1 style={{fontSize: '32px', fontWeight: 'bold', color: '#fff', marginBottom: '8px'}}>Focus Session Tracker</h1>
-          <p style={{color: '#888', fontSize: '12px', fontStyle: 'italic'}}>Helping you get things done</p>
+          <p style={{color: '#888', fontSize: '16px', fontStyle: 'italic'}}>Helping you get things done</p>
         </div>
         <h2 style={{fontSize: '20px', fontWeight: '600', color: '#fff', marginBottom: '20px', textAlign: 'center'}}>{isSignUp ? 'Create Account' : 'Sign In'}</h2>
         <form onSubmit={handleAuth} style={{display: 'flex', flexDirection: 'column', gap: '16px'}}>
